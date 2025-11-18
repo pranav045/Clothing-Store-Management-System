@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Collection - Clothing Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .slider-image {
+            height: 600px;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .add-to-cart {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-tshirt text-pink-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Frontier Phagwara</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="main.php" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                        <a href="women.html" class="border-pink-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Women</a>
+                        <a href="men.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Men</a>
+                        <a href="kids.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Kids</a>
+                        <a href="help.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <button type="button" class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                        <span class="sr-only">Search</span>
+                        <i class="fas fa-search h-6 w-6"></i>
+                    </button>
+                    <button type="button" class="ml-4 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                        <span class="sr-only">Account</span>
+                        <i class="fas fa-user h-6 w-6"></i>
+                    </button>
+                    <a href="cart.html" class="ml-4 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                        <span class="sr-only">Cart</span>
+                        <i class="fas fa-shopping-cart h-6 w-6"></i>
+                        <span class="ml-1 text-sm font-medium text-pink-500 cart-count">0</span>
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-500">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <div class="relative h-[600px] overflow-hidden rounded-lg m-2 shadow-xl">
+        <div class="flex transition-transform duration-500 ease-in-out" id="slider">
+            <img src="p1.png" class="w-full slider-image">
+            <img src="p2.png" class="w-full slider-image">
+            <img src="p3.png" class="w-full slider-image">
+        </div>
+        <button id="prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 text-pink-600 p-3 rounded-full shadow-lg hover:bg-white hover:text-pink-700 transition-colors">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 text-pink-600 p-3 rounded-full shadow-lg hover:bg-white hover:text-pink-700 transition-colors">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Category Heading -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Shop by Category</h1>
+        <p class="text-lg text-gray-600">Discover our latest women's collection</p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Product 1 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="1">
+                <a href="#">
+                    <img src="w top.webp" alt="Women's Solid Top" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Tops</span>
+                    <h3 class="text-lg font-semibold mt-1">Women's Solid Top</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹1,299</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: S, M, L</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="2">
+                <a href="#">
+                    <img src="w lower.webp" alt="Women Cargo" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Women Cargo</span>
+                    <h3 class="text-lg font-semibold mt-1">Relaxed fit Solid cargo</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹1,799</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: S, M, L</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="3">
+                <a href="#">
+                    <img src="joggers.jpg" alt="Joggers" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Joggers</span>
+                    <h3 class="text-lg font-semibold mt-1">Cotton and printed Joggers</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹1,599</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: S, M, L</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="4">
+                <a href="#">
+                    <img src="sits.jpg" alt="Suits" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Suits</span>
+                    <h3 class="text-lg font-semibold mt-1">Luxurious wool suit</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹4,299</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: S, M, L</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="5">
+                <a href="#">
+                    <img src="Trackpaints.jpg" alt="Trackpants" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Trackpants</span>
+                    <h3 class="text-lg font-semibold mt-1">Cotton printed Trackpants</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹1,499</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: S, M, L</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="6">
+                <a href="#">
+                    <img src="sneakers.jpg" alt="Sneakers" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Sneakers</span>
+                    <h3 class="text-lg font-semibold mt-1">Comfortable and Stylish</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹2,699</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: 6, 7, 8, 9</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="7">
+                <a href="#">
+                    <img src="shirt.webp" alt="Shirt" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Shirt</span>
+                    <h3 class="text-lg font-semibold mt-1">Cotton shirt</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹1,299</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: S, M, L</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 product" data-id="8">
+                <a href="#">
+                    <img src="shorts.webp" alt="Shorts" class="w-full h-80 object-cover">
+                </a>
+                <div class="p-4 relative">
+                    <span class="text-gray-500 text-sm">Shorts</span>
+                    <h3 class="text-lg font-semibold mt-1">Cotton printed Shorts</h3>
+                    <p class="text-pink-600 font-bold mt-2 product-price">₹1,199</p>
+                    <p class="text-gray-500 text-sm mt-1 product-size">Size: S, M, L</p>
+                    <button class="add-to-cart mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="bg-gradient-to-r from-pink-50 to-purple-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Join Our Newsletter</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Subscribe to get updates on new arrivals, special offers and other discount information.</p>
+            <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="px-4 py-3 w-full rounded-l-md sm:rounded-r-none rounded-r-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                <button class="mt-2 sm:mt-0 sm:ml-0 px-6 py-3 bg-pink-600 text-white font-medium rounded-r-md sm:rounded-l-none rounded-l-md hover:bg-pink-700 transition-colors">Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Online Shopping</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Men</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Women</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Kids</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Gift cards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Customer Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Terms and Conditions</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Shipping</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Track Order</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Cancelation</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Returns</a></li>
+                        <li><a href="#" class="hover:text-pink-300 transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-facebook-f text-2xl"></i></a>
+                        <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="hover:text-pink-300 transition-colors"><i class="fab fa-youtube text-2xl"></i></a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-medium mb-2">Payment Methods</h4>
+                        <div class="flex space-x-2">
+                            <i class="fab fa-cc-visa text-2xl"></i>
+                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                            <i class="fab fa-cc-paypal text-2xl"></i>
+                            <i class="fab fa-cc-apple-pay text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>Conditions of Use & Sale | Privacy Notice | Interest-Based Ads</p>
+                <p class="mt-2">© 2024-2025, Frontier Phagwara Inc. or its affiliates</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        // Slider functionality
+        const slider = document.getElementById('slider');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        let index = 0;
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+        
+        next.addEventListener('click', () => {
+            if (index < 2) {
+                index++;
+            } else {
+                index = 0;
+            }
+            updateSlider();
+        });
+        
+        prev.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+            } else {
+                index = 2;
+            }
+            updateSlider();
+        });
+
+        // Auto slide change every 5 seconds
+        setInterval(() => {
+            if (index < 2) {
+                index++;
+            } else {
+                index = 0;
+            }
+            updateSlider();
+        }, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Collection - Premium Clothing Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+        
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08);
+        }
+        
+        .cart-btn {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            background-color: #1e293b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .cart-btn:hover {
+            background-color: #0f172a;
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .cart-btn.added {
+            background-color: #047857;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: white;
+            width: 30px;
+            border-radius: 5px;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #1e293b;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Pulse animation for cart button */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        /* Floating cart notification */
+        .cart-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #047857;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease-out;
+            z-index: 1000;
+        }
+        
+        .cart-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-tshirt text-slate-800 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-slate-800">Frontier Phagwara</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="main.php" class="border-transparent text-gray-600 hover:border-gray-300 hover:text-slate-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                        <a href="shop.html" class="border-transparent text-gray-600 hover:border-gray-300 hover:text-slate-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Shop</a>
+                        <a href="men.html" class="border-slate-800 text-slate-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Men</a>
+                        <a href="women.html" class="border-transparent text-gray-600 hover:border-gray-300 hover:text-slate-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Women</a>
+                        <a href="kids.html" class="border-transparent text-gray-600 hover:border-gray-300 hover:text-slate-800 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Kids</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <button type="button" class="bg-white p-1 rounded-full text-gray-500 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-800">
+                        <span class="sr-only">Search</span>
+                        <i class="fas fa-search h-6 w-6"></i>
+                    </button>
+                    <button type="button" class="ml-4 bg-white p-1 rounded-full text-gray-500 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-800">
+                        <span class="sr-only">Account</span>
+                        <i class="fas fa-user h-6 w-6"></i>
+                    </button>
+                    <a href="cart.html" class="ml-4 bg-white p-1 rounded-full text-gray-500 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-800 relative">
+                        <span class="sr-only">Cart</span>
+                        <i class="fas fa-shopping-cart h-6 w-6"></i>
+                        <span class="absolute -top-1 -right-1 bg-slate-800 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center cart-count">0</span>
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-slate-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-slate-800">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="relative h-[600px] overflow-hidden rounded-lg mx-4 mt-4 shadow-2xl">
+        <div class="flex transition-transform duration-500 ease-in-out" id="slider">
+            <img src="p1.png" class="w-full flex-shrink-0 object-cover">
+            <img src="p2.png" class="w-full flex-shrink-0 object-cover">
+            <img src="p3.png" class="w-full flex-shrink-0 object-cover">
+        </div>
+        <button id="prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-slate-800/80 text-white p-3 rounded-full hover:bg-slate-900 transition-all">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-slate-800/80 text-white p-3 rounded-full hover:bg-slate-900 transition-all">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+            <div class="slider-dot active" data-index="0"></div>
+            <div class="slider-dot" data-index="1"></div>
+            <div class="slider-dot" data-index="2"></div>
+        </div>
+    </div>
+
+    <!-- Category Heading -->
+    <div class="text-center py-12">
+        <h1 class="text-5xl font-bold text-slate-800 mb-4">Men's Collection</h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover premium quality clothing designed for comfort and style. Elevate your wardrobe with our latest arrivals.</p>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Product 1 - T-Shirt -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men1">
+                <a href="shop.html" class="block relative h-64 overflow-hidden">
+                    <img src="tshirt.jpg" alt="T-Shirt" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹499</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">T-Shirt</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Cotton Printed T-Shirt</h5>
+                    <div class="text-slate-800 font-bold product-price">₹499</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 2 - Cargo Pants -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men2">
+                <a href="#" class="block relative h-64 overflow-hidden">
+                    <img src="cargopants.webp" alt="Cargo Pants" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹1,299</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">Cargo Pants</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Relaxed Fit Solid Cargo</h5>
+                    <div class="text-slate-800 font-bold product-price">₹1,299</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 3 - Joggers -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men3">
+                <a href="#" class="block relative h-64 overflow-hidden">
+                    <img src="joggers.jpg" alt="Joggers" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹899</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">Joggers</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Cotton Printed Joggers</h5>
+                    <div class="text-slate-800 font-bold product-price">₹899</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 4 - Suits -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men4">
+                <a href="#" class="block relative h-64 overflow-hidden">
+                    <img src="sits.jpg" alt="Suits" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹4,999</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">Suits</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Luxurious Wool Suit</h5>
+                    <div class="text-slate-800 font-bold product-price">₹4,999</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 5 - Trackpants -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men5">
+                <a href="#" class="block relative h-64 overflow-hidden">
+                    <img src="Trackpaints.jpg" alt="Trackpants" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹1,099</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">Trackpants</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Cotton Trackpants</h5>
+                    <div class="text-slate-800 font-bold product-price">₹1,099</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 6 - Sneakers -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men6">
+                <a href="#" class="block relative h-64 overflow-hidden">
+                    <img src="sneakers.jpg" alt="Sneakers" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹2,499</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">Sneakers</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Comfortable Sneakers</h5>
+                    <div class="text-slate-800 font-bold product-price">₹2,499</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 7 - Shirt -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men7">
+                <a href="#" class="block relative h-64 overflow-hidden">
+                    <img src="shirt.webp" alt="Shirt" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹799</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">Shirt</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Premium Cotton Shirt</h5>
+                    <div class="text-slate-800 font-bold product-price">₹799</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 8 - Shorts -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md product-card relative product" data-id="men8">
+                <a href="#" class="block relative h-64 overflow-hidden">
+                    <img src="shorts.webp" alt="Shorts" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    <div class="price-tag">₹699</div>
+                </a>
+                <div class="p-4">
+                    <span class="text-sm text-gray-500">Shorts</span>
+                    <h5 class="text-lg font-semibold text-slate-800 my-1">Cotton Printed Shorts</h5>
+                    <div class="text-slate-800 font-bold product-price">₹699</div>
+                </div>
+                <button class="cart-btn add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="bg-slate-800 text-white py-16">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold mb-4">Join Our Newsletter</h2>
+            <p class="text-gray-300 mb-8">Subscribe to get updates on new arrivals, special offers and more.</p>
+            <div class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-slate-500">
+                <button class="bg-slate-600 hover:bg-slate-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Online Shopping</h3>
+                    <ul class="space-y-2">
+                        <li><a href="men.html" class="hover:text-white transition-colors">Men</a></li>
+                        <li><a href="women.html" class="hover:text-white transition-colors">Women</a></li>
+                        <li><a href="kids.html" class="hover:text-white transition-colors">Kids</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Customer Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="help.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Shipping</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Returns</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Track Order</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Connect With Us</h3>
+                    <div class="flex gap-4 mb-4">
+                        <a href="#" class="text-white hover:text-gray-400 transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-400 transition-colors">
+                            <i class="fab fa-pinterest text-xl"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Payment Methods</h3>
+                    <div class="flex gap-2">
+                        <i class="fab fa-cc-visa text-2xl"></i>
+                        <i class="fab fa-cc-mastercard text-2xl"></i>
+                        <i class="fab fa-cc-amex text-2xl"></i>
+                        <i class="fab fa-cc-paypal text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-sm text-gray-500 text-center">
+                <p>© 2024 Frontier Phagwara Clothing. All rights reserved. | <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | <a href="#" class="hover:text-white transition-colors">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Notification -->
+    <div id="cart-notification" class="cart-notification hidden">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="notification-message">Item added to cart</span>
+    </div>
+
+    <script>
+        // Image Slider Functionality
+        const slider = document.getElementById('slider');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        const dots = document.querySelectorAll('.slider-dot');
+        let index = 0;
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        next.addEventListener('click', () => {
+            if (index < 2) {
+                index++;
+            } else {
+                index = 0;
+            }
+            updateSlider();
+        });
+        
+        prev.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+            } else {
+                index = 2;
+            }
+            updateSlider();
+        });
+        
+        // Auto-advance slider every 5 seconds
+        setInterval(() => {
+            if (index < 2) {
+                index++;
+            } else {
+                index = 0;
+            }
+            updateSlider();
+        }, 5000);
+        
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                index = parseInt(dot.dataset.index);
+                updateSlider();
+            });
+        });
+
+        // Enhanced Cart Functionality
+        let cart = {
+            items: [],
+            totalItems: 0,
+            totalPrice: 0,
+
+            // Initialize cart from localStorage
+            init() {
+                const savedCart = localStorage.getItem('cart');
+                if (savedCart) {
+                    const parsedCart = JSON.parse(savedCart);
+                    this.items = parsedCart.items || [];
+                    this.totalItems = parsedCart.totalItems || 0;
+                    this.totalPrice = parsedCart.totalPrice || 0;
+                }
+                this.updateCartUI();
+            },
+
+            // Add item to cart
+            addItem(product) {
+                // Check if item already exists in cart
+                const existingItem = this.items.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    product.quantity = 1;
+                    this.items.push(product);
+                }
+                
+                this.totalItems += 1;
+                this.totalPrice += product.price;
+                
+                this.saveCart();
+                this.updateCartUI();
+                
+                // Show notification
+                this.showNotification(`${product.name} added to cart`);
+            },
+            
+            // Show notification
+            showNotification(message) {
+                const notification = document.getElementById('cart-notification');
+                const messageElement = document.getElementById('notification-message');
+                
+                messageElement.textContent = message;
+                notification.classList.remove('hidden');
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.classList.add('hidden');
+                    }, 300);
+                }, 3000);
+            },
+
+            // Save cart to localStorage
+            saveCart() {
+                localStorage.setItem('cart', JSON.stringify({
+                    items: this.items,
+                    totalItems: this.totalItems,
+                    totalPrice: this.totalPrice
+                }));
+            },
+
+            // Update cart UI (cart icon count)
+            updateCartUI() {
+                const cartCountElements = document.querySelectorAll('.cart-count');
+                cartCountElements.forEach(element => {
+                    element.textContent = this.totalItems;
+                    if (this.totalItems > 0) {
+                        element.classList.add('pulse');
+                        setTimeout(() => {
+                            element.classList.remove('pulse');
+                        }, 500);
+                    }
+                });
+            }
+        };
+
+        // Initialize cart when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            cart.init();
+            
+            // Set up event listeners for all "Add to Cart" buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productElement = e.target.closest('.product');
+                    if (productElement) {
+                        // Extract price by removing ₹ and commas, then converting to number
+                        const priceText = productElement.querySelector('.product-price').textContent;
+                        const price = parseFloat(priceText.replace('₹', '').replace(',', ''));
+                        
+                        const product = {
+                            id: productElement.dataset.id,
+                            name: productElement.querySelector('h5').textContent,
+                            price: price,
+                            category: productElement.querySelector('span').textContent,
+                            image: productElement.querySelector('img').src
+                        };
+                        cart.addItem(product);
+                        
+                        // Visual feedback
+                        const originalText = button.innerHTML;
+                        button.innerHTML = '<i class="fas fa-check"></i> Added';
+                        button.classList.add('added');
+                        
+                        // Add pulse animation to cart icon
+                        const cartIcon = document.querySelector('.fa-shopping-cart');
+                        if (cartIcon) {
+                            cartIcon.classList.add('pulse');
+                            setTimeout(() => {
+                                cartIcon.classList.remove('pulse');
+                            }, 500);
+                        }
+                        
+                        // Reset button after 1.5 seconds
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.classList.remove('added');
+                        }, 1500);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

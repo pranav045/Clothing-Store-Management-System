@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready to Ship - Frontier Phagwara</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        customBrown: "#8b5e3c",
+                        primary: "#8b5e3c",
+                        secondary: "#6d4c2e",
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex-grow: 1;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .add-to-cart-btn:hover {
+            background-color: #6d4c2e !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Top Bar -->
+    <div class="bg-gray-800 text-white px-2 py-3 text-sm text-center relative">
+        <div class="container mx-auto">
+            
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="flex justify-between items-center bg-white py-4 px-5 border-b border-gray-300 shadow-sm">
+        <a href="main.php" class="text-gray-800 text-2xl font-bold flex items-center">
+            <i class="fas fa-tshirt text-customBrown mr-2"></i>
+            Frontier Phagwara
+        </a>
+
+        <ul class="hidden lg:flex list-none space-x-6">
+            <li><a href="main.php" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Home</a></li>
+            <li><a href="#" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">New Arrivals</a></li>
+            <li><a href="shop.html" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Shop</a></li>
+            <li><a href="men.html" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Category</a></li>
+            <li><a href="readytoship.php" class="text-customBrown text-lg font-bold border-b-2 border-customBrown">Ready to Ship</a></li>
+            <li><a href="help.html" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Help & Care</a></li>
+        </ul>
+
+        <div class="flex items-center space-x-4">
+            <div class="relative hidden md:block">
+                <input type="text" id="search-bar" class="py-1 px-4 pl-10 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-1 focus:ring-customBrown" placeholder="Search products...">
+                <span class="absolute left-3 top-2 text-gray-400">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
+            <a href="cart.html" class="relative text-xl text-gray-700 hover:text-customBrown transition duration-300">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count absolute -top-2 -right-2 bg-customBrown text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </a>
+            <div class="menu-btn lg:hidden text-2xl cursor-pointer text-gray-700">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <ul id="mobile-menu" class="hidden lg:hidden flex-col bg-white text-center py-4 px-2 shadow-md">
+        <li class="py-2"><a href="main.php" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Home</a></li>
+        <li class="py-2"><a href="#" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">New Arrivals</a></li>
+        <li class="py-2"><a href="shop.html" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Shop</a></li>
+        <li class="py-2"><a href="men.html" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Category</a></li>
+        <li class="py-2"><a href="readytoship.php" class="text-customBrown text-lg font-bold">Ready to Ship</a></li>
+        <li class="py-2"><a href="help.html" class="text-black text-lg font-bold hover:text-customBrown transition duration-300">Help & Care</a></li>
+    </ul>
+
+    <!-- Main Content -->
+    <div class="content py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Hero Section -->
+            <div class="bg-gradient-to-r from-customBrown to-secondary rounded-xl p-8 mb-10 text-white">
+                <h1 class="text-4xl font-bold mb-4">Ready to Ship Collection</h1>
+                <p class="text-lg mb-6">Get your favorite styles delivered quickly - no waiting, no delays!</p>
+                <div class="flex items-center">
+                    <div class="mr-4">
+                        <i class="fas fa-shipping-fast text-2xl"></i>
+                        <span class="ml-2">Fast Delivery</span>
+                    </div>
+                    <div class="mr-4">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                        <span class="ml-2">In Stock</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-exchange-alt text-2xl"></i>
+                        <span class="ml-2">Easy Returns</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">Available Now</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product 1 -->
+                    <div class="product bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 product-card" data-id="rts-001">
+                        <div class="relative">
+                            <img src="Men Clothes/image1.jpg" alt="Men's Formal Shirt" class="w-full h-72 object-cover">
+                            <span class="absolute top-3 left-3 bg-green-500 text-white text-xs px-2 py-1 rounded-full">IN STOCK</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-1">Men's Formal Shirt</h3>
+                            <p class="text-gray-600 text-sm mb-2">Available in all sizes</p>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-2">(24 reviews)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <p class="product-price font-bold text-lg">₹1,299</p>
+                                <button class="add-to-cart-btn bg-customBrown text-white py-2 px-4 rounded-full hover:bg-secondary transition duration-300 flex items-center">
+                                    <i class="fas fa-shopping-bag mr-2"></i>
+                                    Add
+                                </button>
+                            </div>
+                            <p class="product-size hidden">One Size</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 product-card" data-id="rts-002">
+                        <div class="relative">
+                            <img src="Woman Clothes/image2.jpg" alt="Women's Kurti" class="w-full h-72 object-cover">
+                            <span class="absolute top-3 left-3 bg-green-500 text-white text-xs px-2 py-1 rounded-full">IN STOCK</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-1">Women's Kurti</h3>
+                            <p class="text-gray-600 text-sm mb-2">Multiple colors available</p>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-2">(18 reviews)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <p class="product-price font-bold text-lg">₹999</p>
+                                <button class="add-to-cart-btn bg-customBrown text-white py-2 px-4 rounded-full hover:bg-secondary transition duration-300 flex items-center">
+                                    <i class="fas fa-shopping-bag mr-2"></i>
+                                    Add
+                                </button>
+                            </div>
+                            <p class="product-size hidden">One Size</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 product-card" data-id="rts-003">
+                        <div class="relative">
+                            <img src="Kids Clothes/image9.jpeg" alt="Kids T-Shirt" class="w-full h-72 object-cover">
+                            <span class="absolute top-3 left-3 bg-green-500 text-white text-xs px-2 py-1 rounded-full">IN STOCK</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-1">Kids T-Shirt</h3>
+                            <p class="text-gray-600 text-sm mb-2">Age 5-10 years</p>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-2">(32 reviews)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <p class="product-price font-bold text-lg">₹599</p>
+                                <button class="add-to-cart-btn bg-customBrown text-white py-2 px-4 rounded-full hover:bg-secondary transition duration-300 flex items-center">
+                                    <i class="fas fa-shopping-bag mr-2"></i>
+                                    Add
+                                </button>
+                            </div>
+                            <p class="product-size hidden">One Size</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 product-card" data-id="rts-004">
+                        <div class="relative">
+                            <img src="Men Clothes/image2.jpg" alt="Men's Casual Shirt" class="w-full h-72 object-cover">
+                            <span class="absolute top-3 left-3 bg-green-500 text-white text-xs px-2 py-1 rounded-full">IN STOCK</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-1">Men's Casual Shirt</h3>
+                            <p class="text-gray-600 text-sm mb-2">All sizes in stock</p>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-500 text-xs ml-2">(27 reviews)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <p class="product-price font-bold text-lg">₹1,099</p>
+                                <button class="add-to-cart-btn bg-customBrown text-white py-2 px-4 rounded-full hover:bg-secondary transition duration-300 flex items-center">
+                                    <i class="fas fa-shopping-bag mr-2"></i>
+                                    Add
+                                </button>
+                            </div>
+                            <p class="product-size hidden">One Size</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-10">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Why Choose Ready to Ship?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="flex items-start">
+                        <div class="bg-customBrown bg-opacity-10 p-3 rounded-full mr-4">
+                            <i class="fas fa-shipping-fast text-customBrown text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Fast Delivery</h3>
+                            <p class="text-gray-600">Get your order delivered within 3-5 business days.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-customBrown bg-opacity-10 p-3 rounded-full mr-4">
+                            <i class="fas fa-check-circle text-customBrown text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Ready Stock</h3>
+                            <p class="text-gray-600">All items are in stock and ready to be shipped.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-customBrown bg-opacity-10 p-3 rounded-full mr-4">
+                            <i class="fas fa-exchange-alt text-customBrown text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Easy Returns</h3>
+                            <p class="text-gray-600">15 days easy return policy on all ready to ship items.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-12 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Fashion World</h3>
+                    <p class="text-gray-300">Your one-stop shop for premium clothing and fashion accessories.</p>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="men.html" class="text-gray-300 hover:text-white">Men's Collection</a></li>
+                        <li><a href="women.html" class="text-gray-300 hover:text-white">Women's Collection</a></li>
+                        <li><a href="kids.html" class="text-gray-300 hover:text-white">Kids' Collection</a></li>
+                        <li><a href="readytoship.php" class="text-gray-300 hover:text-white">Ready to Ship</a></li>
+                        <li><a href="newarrivales.html" class="text-gray-300 hover:text-white">New Arrivals</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Returns & Exchanges</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Payment Options</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to get updates on new arrivals and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md w-full text-gray-800 focus:outline-none">
+                        <button type="submit" class="bg-customBrown text-white px-4 py-2 rounded-r-md hover:bg-secondary transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2024 Frontier Phagwara. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-white">Terms of Service</a> | 
+                    <a href="#" class="hover:text-white">Shipping Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Include cart.js -->
+    <script src="cart.js"></script>
+    
+    <!-- Add to Cart Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart
+            cart.init();
+            
+            // Add event listeners to all "Add to Cart" buttons
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const productCard = e.target.closest('.product');
+                    const productId = productCard.dataset.id;
+                    const productName = productCard.querySelector('h3').textContent;
+                    const productPrice = parseFloat(productCard.querySelector('.product-price').textContent.replace('₹', '').replace(',', ''));
+                    const productImage = productCard.querySelector('img').src;
+                    const productSize = productCard.querySelector('.product-size').textContent;
+                    
+                    const product = {
+                        id: productId,
+                        name: productName,
+                        price: productPrice,
+                        size: productSize,
+                        image: productImage
+                    };
+                    
+                    cart.addItem(product);
+                    
+                    // Visual feedback
+                    const originalText = e.target.innerHTML;
+                    e.target.innerHTML = '<i class="fas fa-check mr-2"></i> Added';
+                    e.target.classList.remove('bg-customBrown', 'hover:bg-secondary');
+                    e.target.classList.add('bg-green-600', 'hover:bg-green-700');
+                    
+                    // Update cart count in navbar
+                    const cartCount = document.querySelector('.cart-count');
+                    cartCount.classList.add('animate-ping');
+                    setTimeout(() => {
+                        cartCount.classList.remove('animate-ping');
+                    }, 500);
+                    
+                    // Reset button after 1.5 seconds
+                    setTimeout(() => {
+                        e.target.innerHTML = originalText;
+                        e.target.classList.remove('bg-green-600', 'hover:bg-green-700');
+                        e.target.classList.add('bg-customBrown', 'hover:bg-secondary');
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

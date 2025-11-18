@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Clothing Management Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .quantity-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-tshirt text-pink-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Fashion World</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="main.php" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                        <a href="women.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Shop</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">New Arrivals</a>
+                        <a href="kids.html" class="border-pink-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Kids Collection</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <button type="button" class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                        <span class="sr-only">Search</span>
+                        <i class="fas fa-search h-6 w-6"></i>
+                    </button>
+                    <button type="button" class="ml-4 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                        <span class="sr-only">Account</span>
+                        <i class="fas fa-user h-6 w-6"></i>
+                    </button>
+                    <a href="cart.html" class="ml-4 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                        <span class="sr-only">Cart</span>
+                        <i class="fas fa-shopping-cart h-6 w-6"></i>
+                        <span class="ml-1 text-sm font-medium text-pink-500 cart-count">0</span>
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-500">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Your Shopping Cart</h1>
+        
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="p-6">
+                <div id="cart-items" class="divide-y divide-gray-200">
+                    <!-- Cart items will be dynamically inserted here -->
+                    <div class="text-center py-8 text-gray-500" id="empty-cart-message">
+                        Your cart is currently empty.
+                    </div>
+                </div>
+                
+                <div class="mt-8 border-t border-gray-200 pt-6">
+                    <div class="flex justify-between text-lg font-bold text-gray-900">
+                        <span>Total:</span>
+                        <span id="cart-total">₹0.00</span>
+                    </div>
+                    <div class="mt-6">
+                        <button id="checkout-btn" class="w-full bg-pink-500 text-white py-3 px-6 rounded-md hover:bg-pink-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = {
+            items: [],
+            totalItems: 0,
+            totalPrice: 0,
+
+            // Initialize cart from localStorage
+            init() {
+                const savedCart = localStorage.getItem('cart');
+                if (savedCart) {
+                    const parsedCart = JSON.parse(savedCart);
+                    this.items = parsedCart.items || [];
+                    this.totalItems = parsedCart.totalItems || 0;
+                    this.totalPrice = parsedCart.totalPrice || 0;
+                }
+                this.updateCartUI();
+                this.displayCartItems();
+            },
+
+            // Save cart to localStorage
+            saveCart() {
+                localStorage.setItem('cart', JSON.stringify({
+                    items: this.items,
+                    totalItems: this.totalItems,
+                    totalPrice: this.totalPrice
+                }));
+                this.updateCartUI();
+                this.displayCartItems();
+            },
+
+            // Update cart UI (cart icon count)
+            updateCartUI() {
+                const cartCountElements = document.querySelectorAll('.cart-count');
+                cartCountElements.forEach(element => {
+                    element.textContent = this.totalItems;
+                });
+            },
+
+            // Display cart items
+            displayCartItems() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                const emptyCartMessage = document.getElementById('empty-cart-message');
+                const cartTotalElement = document.getElementById('cart-total');
+                const checkoutBtn = document.getElementById('checkout-btn');
+                
+                if (this.items.length === 0) {
+                    emptyCartMessage.classList.remove('hidden');
+                    cartTotalElement.textContent = '₹0.00';
+                    checkoutBtn.disabled = true;
+                    return;
+                }
+                
+                emptyCartMessage.classList.add('hidden');
+                checkoutBtn.disabled = false;
+                
+                cartItemsContainer.innerHTML = '';
+                this.items.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'py-4 flex flex-col sm:flex-row';
+                    itemElement.innerHTML = `
+                        <div class="flex-shrink-0">
+                            <img src="${item.image}" alt="${item.name}" class="h-24 w-24 object-cover rounded-md">
+                        </div>
+                        <div class="ml-4 flex-1 flex flex-col">
+                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                <h3>${item.name}</h3>
+                                <p class="ml-4">₹${(item.price * item.quantity).toFixed(2)}</p>
+                            </div>
+                            <p class="mt-1 text-sm text-gray-500">${item.size}</p>
+                            <div class="mt-4 flex-1 flex items-end justify-between">
+                                <div class="flex items-center border border-gray-300 rounded-md">
+                                    <button class="quantity-btn px-3 py-1 text-gray-600 hover:bg-gray-100" data-id="${item.id}" data-action="decrease" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+                                    <span class="px-3 py-1 quantity">${item.quantity}</span>
+                                    <button class="quantity-btn px-3 py-1 text-gray-600 hover:bg-gray-100" data-id="${item.id}" data-action="increase">+</button>
+                                </div>
+                                <button class="remove-btn text-sm font-medium text-pink-500 hover:text-pink-600" data-id="${item.id}">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                });
+                
+                cartTotalElement.textContent = `₹${this.totalPrice.toFixed(2)}`;
+            },
+
+            // Increase item quantity
+            increaseQuantity(productId) {
+                const item = this.items.find(item => item.id === productId);
+                if (item) {
+                    item.quantity += 1;
+                    this.totalItems += 1;
+                    this.totalPrice += item.price;
+                    this.saveCart();
+                }
+            },
+
+            // Decrease item quantity
+            decreaseQuantity(productId) {
+                const item = this.items.find(item => item.id === productId);
+                if (item && item.quantity > 1) {
+                    item.quantity -= 1;
+                    this.totalItems -= 1;
+                    this.totalPrice -= item.price;
+                    this.saveCart();
+                }
+            },
+
+            // Remove item from cart
+            removeItem(productId) {
+                const itemIndex = this.items.findIndex(item => item.id === productId);
+                if (itemIndex !== -1) {
+                    const item = this.items[itemIndex];
+                    this.totalItems -= item.quantity;
+                    this.totalPrice -= item.price * item.quantity;
+                    this.items.splice(itemIndex, 1);
+                    this.saveCart();
+                }
+            }
+        };
+
+        // Initialize cart when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            cart.init();
+            
+            // Handle quantity buttons
+            document.getElementById('cart-items').addEventListener('click', (e) => {
+                if (e.target.classList.contains('quantity-btn')) {
+                    const id = e.target.dataset.id;
+                    const action = e.target.dataset.action;
+                    
+                    if (action === 'increase') {
+                        cart.increaseQuantity(id);
+                    } else if (action === 'decrease') {
+                        cart.decreaseQuantity(id);
+                    }
+                } else if (e.target.classList.contains('remove-btn')) {
+                    const id = e.target.dataset.id;
+                    cart.removeItem(id);
+                }
+            });
+            
+            // Checkout button handler
+            document.getElementById('checkout-btn').addEventListener('click', () => {
+                if (cart.items.length > 0) {
+                    alert('Proceeding to checkout!');
+                    // In a real app, you would redirect to checkout page
+                }
+            });
+        });
+    </script>
+</body>
+</html>
