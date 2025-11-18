@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | Frontier Phagwara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e40af',
+                        accent: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-xl font-bold text-primary">Fashion World</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="main.php" class="px-3 py-2 text-sm font-medium hover:text-primary">Home</a>
+                        <a href="shop.html" class="px-3 py-2 text-sm font-medium hover:text-primary">Shop</a>
+                        <a href="help.html" class="px-3 py-2 text-sm font-medium text-primary border-b-2 border-primary">Help Center</a>
+                        <a href="/contact" class="px-3 py-2 text-sm font-medium hover:text-primary">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold mb-4">How can we help you today?</h1>
+            <div class="max-w-2xl mx-auto relative">
+                <input type="text" placeholder="Search help articles..." class="w-full py-4 px-6 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-secondary">
+                <button class="absolute right-2 top-2 bg-secondary text-white px-4 py-2 rounded-md hover:bg-blue-900">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Quick Help Cards -->
+            <div class="md:col-span-2">
+                <h2 class="text-2xl font-bold mb-6">Quick Help</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-accent text-3xl mb-4">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Shipping & Delivery</h3>
+                        <p class="text-gray-600 mb-4">Track your order, check delivery times, and learn about shipping options.</p>
+                        <a href="#" class="text-primary font-medium hover:underline">Learn more <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-accent text-3xl mb-4">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Returns & Refunds</h3>
+                        <p class="text-gray-600 mb-4">How to return items and get refunds or exchanges.</p>
+                        <a href="#" class="text-primary font-medium hover:underline">Learn more <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-accent text-3xl mb-4">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Payment Options</h3>
+                        <p class="text-gray-600 mb-4">Learn about accepted payment methods and security.</p>
+                        <a href="#" class="text-primary font-medium hover:underline">Learn more <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-accent text-3xl mb-4">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">FAQs</h3>
+                        <p class="text-gray-600 mb-4">Find answers to common questions about shopping with us.</p>
+                        <a href="#" class="text-primary font-medium hover:underline">Learn more <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Options -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Contact Us</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-phone-alt text-accent mr-2"></i> Call Us
+                        </h3>
+                        <p class="text-gray-600 mb-2">Available 24/7 for your convenience</p>
+                        <a href="tel:+18005551234" class="text-primary font-medium">91-6395204834</a>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-envelope text-accent mr-2"></i> Email Us
+                        </h3>
+                        <p class="text-gray-600 mb-2">We typically respond within 24 hours</p>
+                        <a href="mailto:help@yourstore.com" class="text-primary font-medium">help@yourstore.com</a>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-comment-dots text-accent mr-2"></i> Live Chat
+                        </h3>
+                        <p class="text-gray-600 mb-2">Available Mon-Fri, 9am-6pm EST</p>
+                        <button class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                            Start Chat
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-map-marker-alt text-accent mr-2"></i> Visit Us
+                        </h3>
+                        <p class="text-gray-600">123 Store Street<br>Retail City, RC 12345</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="font-medium">How do I track my order?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-600">You can track your order by logging into your account and visiting the "My Orders" section. Alternatively, you can use the tracking number provided in your shipping confirmation email on the carrier's website.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="font-medium">What is your return policy?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-600">We accept returns within 30 days of purchase for most items. Items must be unused, in their original packaging, and with all tags attached. Some items like perishable goods or personalized products may not be eligible for return. Please see our full return policy for details.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="font-medium">How can I change or cancel my order?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-600">If your order hasn't been shipped yet, you may be able to change or cancel it. Please contact our customer service team immediately at help@fashionworld.com or call us at +91-6395204834 with your order number ready.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="font-medium">Do you offer international shipping?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-600">Yes, we ship to over 50 countries worldwide. Shipping costs and delivery times vary by destination. During checkout, you'll see the available shipping options and costs for your location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Articles -->
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold mb-6">Popular Help Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="createaccount.php" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 block">
+                    <h3 class="text-lg font-semibold mb-2 text-primary">Creating an Account</h3>
+                    <p class="text-gray-600">Learn how to create an account to track orders, save favorites, and more.</p>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 block">
+                    <h3 class="text-lg font-semibold mb-2 text-primary">Gift Wrapping Options</h3>
+                    <p class="text-gray-600">Discover our gift wrapping services and how to add them to your order.</p>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 block">
+                    <h3 class="text-lg font-semibold mb-2 text-primary">Size Guides</h3>
+                    <p class="text-gray-600">Find the perfect fit with our comprehensive size guides.</p>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 block">
+                    <h3 class="text-lg font-semibold mb-2 text-primary">Payment Security</h3>
+                    <p class="text-gray-600">Learn about our secure payment processing and data protection.</p>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 block">
+                    <h3 class="text-lg font-semibold mb-2 text-primary">Order Status Explained</h3>
+                    <p class="text-gray-600">Understand what each order status means and what to expect next.</p>
+                </a>
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 block">
+                    <h3 class="text-lg font-semibold mb-2 text-primary">Promo Codes & Discounts</h3>
+                    <p class="text-gray-600">How to apply promo codes and information about current discounts.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">YourStore</h3>
+                    <p class="text-gray-400">Quality products for everyone. Shop with confidence and convenience.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="help.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-400">Subscribe to our newsletter</p>
+                        <div class="flex mt-2">
+                            <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l text-gray-800 w-full">
+                            <button class="bg-primary px-4 py-2 rounded-r hover:bg-blue-700">Join</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Fashion World. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle content
+                content.classList.toggle('hidden');
+                
+                // Rotate icon
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html>

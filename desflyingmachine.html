@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="cart.js"></script>
+</head>
+<body class="p-8 bg-gray-50">
+    <div id="messageBox" class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-lg opacity-0 transition-opacity duration-500 z-50 pointer-events-none">
+        Successfully added to your cart!
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg mb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-tshirt text-pink-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Frontier Phagwara</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="cart.html" class="ml-4 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Cart</span>
+                        <i class="fas fa-shopping-cart h-6 w-6"></i>
+                        <span class="ml-1 text-sm font-medium text-pink-500 cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+  
+  <section class="flex gap-6">
+    <div class="basis-full md:basis-1/2 flex justify-center items-start">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="border-2 rounded-md hover:shadow-2xl">
+            <img src="d2.4.jpg" class=" object-cover rounded-md shadow-md hover:scale-105 hover:shadow-2xl transition" alt="">
+          </div>
+          <div class="border-2 rounded-md hover:shadow-2xl">
+            <img src="d2.jpg" class=" object-cover rounded-md shadow-md hover:scale-105 hover:shadow-2xl transition" alt="">
+          </div>
+          <div class="border-2 rounded-md hover:shadow-2xl">
+            <img src="d2.1.jpg" class=" object-cover rounded-md shadow-md hover:scale-105 hover:shadow-2xl transition" alt="">
+          </div>
+          <div class="border-2 rounded-md hover:shadow-2xl">
+            <img src="d2.2.jpg" class=" object-cover rounded-md shadow-md hover:scale-105 hover:shadow-2xl transition" alt="">
+          </div> 
+        </div>
+    </div>
+      
+    <div class="basis-full md:basis-1/2 space-y-4">
+      <h1 class="text-3xl font-bold text-gray-800">Flying Machine</h1>
+      <p class="text-gray-700">Drop-Shoulder Sleeves Pure Cotton Relaxed Fit T-shirt</p>
+
+      <p class="text-2xl font-semibold border-t-2">Rs.750 
+        <span class="text-gray-500 line-through text-base ml-2">Rs.1820</span>
+        <span class="text-orange-600 text-lg ml-2">(62% OFF)</span>
+      </p>
+
+      <p class="font-medium py-2">Select Size</p>
+      <div class="flex gap-4 size-selector">
+          <div class="size-14 ring-1 ring-gray-300 flex justify-center items-center rounded-full hover:ring-red-600 cursor-pointer" data-size="S">S</div>
+          <div class="size-14 ring-1 ring-gray-300 flex justify-center items-center rounded-full hover:ring-red-600 cursor-pointer" data-size="M">M</div>
+          <div class="size-14 ring-1 ring-gray-300 flex justify-center items-center rounded-full hover:ring-red-600 cursor-pointer" data-size="L">L</div>
+          <div class="size-14 ring-1 ring-gray-300 flex justify-center items-center rounded-full hover:ring-red-600 cursor-pointer" data-size="XL">XL</div>
+      </div>
+      
+      <button class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition add-to-cart-btn">Add to Cart</button>
+      
+      <div class="border-t-2">
+          <p class="font-medium mt-2">Delivery option</p>
+          <br>
+          <p><input type="text" placeholder="Enter your Pincode " class="border-2 rounded-md p-1 focus:outline-none w-[40%]"></p>
+          <p class=" text-[12px] text-gray-700 pt-1 ">Please enter PIN code to check delivery time & Pay on Delivery Availability</p>
+          <p class="pt-6">100% Original Products</p>
+          <p class="pt-1">Pay on delivery might be available</p>
+          <p class="pt-1">Easy 7 days returns and exchanges</p>
+          <br>
+          <p class="text-xl font-medium pb-2">Product Details </p>
+          <p>Olive green Tshirt for men</p>
+          <p>Striped</p>
+          <p>Regular length</p>
+          <p>Polo collar</p>
+          <p>Long, regular sleeves</p>
+          <p>Knitted blended fabric</p>
+          <p>Button closure</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <div class="flex justify-center">
+    <h1 class="text-5xl drop-shadow-2xl py-6">Featured Product</h1>
+  </div>
+  <div class="flex justify-around gap-4 flex-wrap pb-4">
+    <div class="border-2 border-b-gray-200 w-[16%] w-max-[200px] rounded-xl p-3 m-4 shadow-xl relative hover:shadow-2xl">
+        <a href="#"><img src="tshirt 10.webp" alt="" class="rounded-lg w-[100%] h-[75%] transition duration-200 transform hover:scale-95">
+        </a>
+        <h5 class="text-md font-bold">THE BEAR HOUSE</h5>
+        <span class="text-gray-600">Polo Collar Pure Cotton Slim Fit T-shirt</span><br>
+        <p class="font-semibold">Rs.618 <span class="text-gray-600 font-light text-[12px] ml-0.5"><del>Rs.1995</del></span><span class="text-orange-600 ml-1 text-[14px]">(69% off)</span></p>
+        <div class=""><img src="shopping-cart.png" alt="" 
+            class="size-6 absolute right-5 bottom-2 hover:bg-amber-50 cursor-pointer" 
+            onclick="showMessage()">
+       </div>
+    </div>
+   
+    <div class="border-2 border-b-gray-200 w-[16%] w-max-[200px] rounded-xl p-3 m-4 shadow-xl relative hover:shadow-2xl">
+        <a href="#"><img src="tshirt 4.webp" alt="" class="rounded-lg w-[100%] h-[75%] transition duration-200 transform hover:scale-95">
+        </a>
+        <h5 class="text-md font-bold">RARE RABBIT</h5>
+        <span class="text-gray-600">Men Ringer-2 Printed Polo</span><br>
+        <p class="font-semibold">Rs.1999 <span class="text-gray-600 font-light text-[12px] ml-0.5"><del>Rs.2699</del></span><span class="text-orange-600 ml-1 text-[14px]">(42% off)</span></p>
+        <div class=""><img src="shopping-cart.png" alt="" 
+            class="size-6 absolute right-5 bottom-2 hover:bg-amber-50 cursor-pointer" 
+            onclick="showMessage()">
+       </div>
+    </div>
+    
+    <div class="border-2 border-b-gray-200 w-[16%] w-max-[200px] rounded-xl p-3 m-4 shadow-xl relative hover:shadow-2xl">
+        <a href="#"><img src="tshirt 6.webp" alt="" class="rounded-lg w-[100%] h-[75%] transition duration-200 transform hover:scale-95">
+        </a>
+        <h5 class="text-md font-bold">Bewakoof</h5>
+        <span class="text-gray-600">Short Sleeves Cotton Oversized T-shirt</span><br>
+        <p class="font-semibold">Rs.799 <span class="text-gray-600 font-light text-[12px] ml-0.5"><del>Rs.1249</del></span><span class="text-orange-600 ml-1 text-[14px]">(RS.450 off)</span></p>
+        <div class=""><img src="shopping-cart.png" alt="" 
+            class="size-6 absolute right-5 bottom-2 hover:bg-amber-50 cursor-pointer" 
+            onclick="showMessage()">
+       </div>
+    </div>
+    <div class="border-2 border-b-gray-200 w-[16%] w-max-[200px] rounded-xl p-3 m-4 shadow-xl relative hover:shadow-2xl">
+        <a href="#"><img src="tshirt 7.webp" alt="" class="rounded-lg w-[100%] h-[75%] transition duration-200 transform hover:scale-95">
+        </a>
+        <h5 class="text-md font-bold">H&M</h5>
+        <span class="text-gray-600">Regular Fit Round-Neck T-shirt</span><br>
+        <p class="font-semibold">Rs.750 <span class="text-gray-600 font-light text-[12px] ml-0.5"><del>Rs.1820</del></span><span class="text-orange-600 ml-1 text-[14px]">(62% off)</span></p>
+        <div class=""><img src="shopping-cart.png" alt="" 
+            class="size-6 absolute right-5 bottom-2 hover:bg-amber-50 cursor-pointer" 
+            onclick="showMessage()">
+       </div>
+    </div>
+    <div class="border-2 border-b-gray-200 w-[16%] w-max-[200px] rounded-xl p-3 m-4 shadow-xl relative hover:shadow-2xl">
+        <a href="#"><img src="tshirt 8.webp" alt="" class="rounded-lg w-[100%] h-[75%] transition duration-200 transform hover:scale-95">
+        </a>
+        <h5 class="text-md font-bold">Crazymonk</h5>
+        <span class="text-gray-600">Unisex Anime Printed Oversized T-shirt</span><br>
+        <p class="font-semibold">Rs.704 <span class="text-gray-600 font-light text-[12px] ml-0.5"><del>Rs.1499</del></span><span class="text-orange-600 ml-1 text-[14px]">(53% off)</span></p>
+        <div class=""><img src="shopping-cart.png" alt="" 
+            class="size-6 absolute right-5 bottom-2 hover:bg-amber-50 cursor-pointer" 
+            onclick="showMessage()">
+       </div>
+    </div>
+  </div>
+
+  <footer class="m-1 rounded-lg">
+    <div class="p-2">
+        <div class="flex justify-around">
+            <div class="flex-col">
+                <div class="font-medium">Online Shopping</div><br>
+                <div class="text-gray-900 cursor-pointer hover:underline"><a href="men.html">Men</a></div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Women</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Kids</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Gift cards</div>
+            </div>
+            <div class="flex-col">
+                <h1 class="font-medium">Customer services</h1><br>
+                <div class="text-gray-900 cursor-pointer hover:underline">Contact Us</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Terms and Conditions</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Shipping</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Track Order</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Cancelation</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Returns</div>
+                <div class="text-gray-900 cursor-pointer hover:underline">Privacy Policy</div>
+            </div>
+            <div>
+                <H1 class="font-medium">Connect with us</H1>
+                <br>    
+                <div class="flex gap-2">
+                    <a href=""><div class="size-12 hover:drop-shadow-lg"><img src="icons8-facebook-logo-50.png" alt=""></div></a>
+                    <a href=""><div class="size-12 hover:drop-shadow-lg"><img src="icons8-instagram-50.png" alt=""></div></a>
+                    <a href=""><div class="size-12 hover:drop-shadow-lg"><img src="icons8-twitter-50.png" alt=""></div></a>
+                    <a href=""><div class="size-12 hover:drop-shadow-lg"><img src="icons8-youtube-50.png" alt=""></div></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t flex justify-around pt-3 font-light">
+            Conditions of Use & Sale
+            Privacy Notice
+            Interest-Based Ads
+            © 2024-2025, Inc. or its affiliates
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize cart
+    document.addEventListener('DOMContentLoaded', () => {
+        cart.init();
+        
+        // Size selection
+        let selectedSize = null;
+        document.querySelectorAll('.size-selector div').forEach(sizeDiv => {
+            sizeDiv.addEventListener('click', () => {
+                // Remove selection from all sizes
+                document.querySelectorAll('.size-selector div').forEach(div => {
+                    div.classList.remove('ring-red-600', 'bg-red-100');
+                    div.classList.add('ring-gray-300');
+                });
+                
+                // Add selection to clicked size
+                sizeDiv.classList.remove('ring-gray-300');
+                sizeDiv.classList.add('ring-red-600', 'bg-red-100');
+                selectedSize = sizeDiv.dataset.size;
+            });
+        });
+        
+        // Add to cart button
+        document.querySelector('.add-to-cart-btn').addEventListener('click', () => {
+            if (!selectedSize) {
+                alert('Please select a size first');
+                return;
+            }
+            
+            const product = {
+                id: 'flying-machine-tshirt-' + selectedSize,
+                name: 'Flying Machine Drop-Shoulder T-Shirt (' + selectedSize + ')',
+                price: 750,
+                size: selectedSize,
+                image: 'd2.jpg'
+            };
+            
+            cart.addItem(product);
+            showMessage();
+        });
+    });
+
+    function showMessage() {
+      const msg = document.getElementById('messageBox');
+      
+      msg.classList.remove('opacity-0');
+      msg.classList.add('opacity-100');
+
+      setTimeout(() => {
+        msg.classList.remove('opacity-100');
+        msg.classList.add('opacity-0');
+      }, 3000); 
+    }
+  </script>
+</body>
+</html>

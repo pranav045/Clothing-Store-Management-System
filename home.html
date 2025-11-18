@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="grid grid-cols-4">
+    
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Clothing Store</h1>
+        <ul class="flex space-x-6">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Shop</a></li>
+            <li><a href="#" class="hover:underline">Categories</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="h-96 bg-cover bg-center flex items-center justify-center text-white text-4xl font-bold" style="background-image: url('https://source.unsplash.com/1600x900/?fashion,clothing');">
+        Discover the Latest Trends
+    </section>
+    
+    <!-- Categories -->
+    <section class="p-8">
+        <h2 class="text-3xl font-semibold text-center mb-6">Shop by Category</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?mens-clothing" class="w-full rounded-md" alt="Men">
+                <h3 class="mt-4 font-bold">Men</h3>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?womens-clothing" class="w-full rounded-md" alt="Women">
+                <h3 class="mt-4 font-bold">Women</h3>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?kids-fashion" class="w-full rounded-md" alt="Kids">
+                <h3 class="mt-4 font-bold">Kids</h3>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?accessories" class="w-full rounded-md" alt="Accessories">
+                <h3 class="mt-4 font-bold">Accessories</h3>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section class="p-8 bg-gray-200">
+        <h2 class="text-3xl font-semibold text-center mb-6">Featured Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?jeans" class="w-full rounded-md" alt="Jeans">
+                <h3 class="mt-4 font-bold">Stylish Jeans</h3>
+                <p class="text-gray-600">$40.00</p>
+                <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</button>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?jacket" class="w-full rounded-md" alt="Jacket">
+                <h3 class="mt-4 font-bold">Leather Jacket</h3>
+                <p class="text-gray-600">$60.00</p>
+                <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</button>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?sneakers" class="w-full rounded-md" alt="Shoes">
+                <h3 class="mt-4 font-bold">Trendy Sneakers</h3>
+                <p class="text-gray-600">$50.00</p>
+                <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</button>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+                <img src="https://source.unsplash.com/300x200/?tshirt" class="w-full rounded-md" alt="T-Shirt">
+                <h3 class="mt-4 font-bold">Casual T-Shirt</h3>
+                <p class="text-gray-600">$25.00</p>
+                <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-500 to-gray-200">
+        <div class="p-2">
+            <div class="flex justify-around">
+                <div class="flex-col">
+                    <div class="font-medium  ">Online Shopping</div><br>
+                    <div class="text-gray-900 cursor-pointer hover:underline">Men</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline">Women</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline">Kids</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline">Gift cards</div>
+                </div>
+                <div class="flex-col">
+                    <h1  class="font-medium">Customer services</h1><br>
+                    <div class="text-gray-900 cursor-pointer hover:underline ">Contact Us</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline ">Terms and Conditions</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline ">Shipping</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline ">Track Order</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline ">Cancelation</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline ">Returns</div>
+                    <div class="text-gray-900 cursor-pointer hover:underline ">Privacy Policy</div>
+    
+                </div>
+                <div>
+                    <H1 class="font-medium">Connect with us</H1>
+                    <br>    
+                    <div class="flex  gap-2  ">
+                        <a href=""><div class="size-12"><img src="icons8-facebook-logo-50.png" alt=""></div></a>
+                        <a href=""><div class="size-12"><img src="icons8-instagram-50.png" alt=""></div></a>
+                        <a href=""><div class="size-12"><img src="icons8-twitter-50.png" alt=""></div></a>
+                        <a href=""><div class="size-12"><img src="icons8-youtube-50.png" alt=""></div></a>
+                        
+                    </div>
+                </div>
+                
+                
+
+            </div>
+            <div class="border-t flex justify-around pt-3 font-light">
+                Conditions of Use & Sale
+Privacy Notice
+Interest-Based Ads
+© 2024-2025,  Inc. or its affiliates
+            </div>
+            
+        </div>
+    </footer>
+</body>
+</html>
